@@ -1,0 +1,19 @@
+[
+  { "keys": ["super+shift+o"], "command": "prompt_open_folder" },
+  { "keys": ["ctrl+super+n"], "command": "new_snippet" },
+  { "keys": ["n", "n"], "command": "advanced_new_file",
+    "context": [{ "key": "setting.command_mode", "operand": true }]},
+  { "keys": ["j", "j"], "command": "exit_insert_mode",
+    "context":
+    [
+      { "key": "setting.command_mode", "operand": false },
+      { "key": "setting.is_widget", "operand": false }
+    ]
+  },
+  { "keys": [" ", "m"], "command": "list_rails_models", "context": [{"key": "setting.command_mode"}] },
+  { "keys": [" ", "c"], "command": "list_rails_controllers", "context": [{"key": "setting.command_mode"}] },
+  { "keys": [" ", "v"], "command": "list_rails_views", "context": [{"key": "setting.command_mode"}] },
+  { "keys": [" ", "i"], "command": "list_rails_javascripts", "context": [{"key": "setting.command_mode"}] },
+  { "keys": [" ", "y"], "command": "list_rails_stylesheets", "context": [{"key": "setting.command_mode"}] },
+  { "keys": ["p", "l", "i"], "command": "json_to_plist", "context": [{"key": "setting.command_mode"}] }
+]

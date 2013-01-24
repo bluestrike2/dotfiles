@@ -1,0 +1,13 @@
+{
+	"extensions":
+	[
+		"zsh-theme",
+		".zshrc",
+		".zsh_aliases",
+		"zlogin",
+		"zlogout",
+		"zprofile",
+		"zshenv",
+		"zshrc"
+	]
+}

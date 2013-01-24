@@ -1,0 +1,21 @@
+{
+	"auto_upgrade_last_run": null,
+	"installed_packages":
+	[
+		"AAAPackageDev",
+		"Alignment",
+		"DetectSyntax",
+		"Gitignore",
+		"Haml",
+		"Minifier",
+		"Package Control",
+		"Ruby Slim",
+		"RubyMotion Autocomplete",
+		"RubyMotionBuilder",
+		"SideBarEnhancements",
+		"SublimeLinter",
+		"SyncedSideBar",
+		"Tag",
+		"TomDoc+"
+	]
+}
