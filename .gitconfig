@@ -1,0 +1,26 @@
+[user]
+	name = Tom Stoecklein
+	email = tom@speedlist.com
+[core]
+	excludesfile = /Users/tom/.gitignore_global
+[color]
+  ui = auto
+[color "status"]
+  changed = yellow
+  added = green
+  untracked = red
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[diff]
+	tool = Kaleidoscope
+[difftool]
+	prompt = false
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+[mergetool]
+	prompt = false
+[merge]
+	tool = Kaleidoscope
+[push]
+	default = matching
