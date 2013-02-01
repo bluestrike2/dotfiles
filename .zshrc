@@ -21,6 +21,7 @@ alias h="heroku"
 
 alias diff="git difftool"
 alias ga='git add'
+alias giA='git add -A'
 alias gc='git commit'
 alias gck='git checkout'
 alias gSpu='git submodule foreach git pull && git submodule update --recursive'
