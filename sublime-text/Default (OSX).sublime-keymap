@@ -1,19 +1,38 @@
 [
   { "keys": ["super+shift+o"], "command": "prompt_open_folder" },
-  { "keys": ["ctrl+super+n"], "command": "new_snippet" },
-  { "keys": ["n", "n"], "command": "advanced_new_file",
-    "context": [{ "key": "setting.command_mode", "operand": true }]},
-  { "keys": ["j", "j"], "command": "exit_insert_mode",
-    "context":
-    [
-      { "key": "setting.command_mode", "operand": false },
-      { "key": "setting.is_widget", "operand": false }
-    ]
-  },
-  { "keys": [" ", "m"], "command": "list_rails_models", "context": [{"key": "setting.command_mode"}] },
-  { "keys": [" ", "c"], "command": "list_rails_controllers", "context": [{"key": "setting.command_mode"}] },
-  { "keys": [" ", "v"], "command": "list_rails_views", "context": [{"key": "setting.command_mode"}] },
-  { "keys": [" ", "i"], "command": "list_rails_javascripts", "context": [{"key": "setting.command_mode"}] },
-  { "keys": [" ", "y"], "command": "list_rails_stylesheets", "context": [{"key": "setting.command_mode"}] },
-  { "keys": ["p", "l", "i"], "command": "json_to_plist", "context": [{"key": "setting.command_mode"}] }
+
+  { "command": "advanced_new_file", "keys": ["n", "n"],
+    "context": [{ "key": "setting.command_mode",  "operand": true }] },
+
+  { "command": "json_to_plist", "keys": ["p", "l", "i"],
+    "context": [{"key": "setting.command_mode"}] },
+
+  { "command": "exit_insert_mode", "keys": ["j", "j"],
+    "context": [ { "key": "setting.command_mode", "operand": false },
+                 { "key": "setting.is_widget",    "operand": false }] },
+
+  { "command": "rails_related_files", "keys": ["super+shift+r"],
+    "args": {"index": -1 }},
+  { "command": "rails_related_files", "keys": [" ", "r"],
+    "context": [{"key": "setting.command_mode"}], "args": {"index": -1 } },
+
+  { "command": "list_rails_models", "keys": [" ", "m"],
+    "context": [{"key": "setting.command_mode"}] },
+  { "command": "list_rails_models", "keys": [" ", "m"],
+    "context": [{"key": "setting.command_mode"}] },
+  { "command": "list_rails_controllers", "keys": [" ", "m"],
+    "context": [{"key": "setting.command_mode"}] },
+  { "command": "list_rails_views", "keys": [" ", "m"],
+    "context": [{"key": "setting.command_mode"}] },
+  { "command": "list_rails_helpers", "keys": [" ", "m"],
+    "context": [{"key": "setting.command_mode"}] },
+  { "command": "list_rails_fixtures", "keys": [" ", "m"],
+    "context": [{"key": "setting.command_mode"}] },
+  { "command": "list_rails_tests", "keys": [" ", "m"],
+    "context": [{"key": "setting.command_mode"}] },
+  { "command": "list_rails_javascripts", "keys": [" ", "m"],
+    "context": [{"key": "setting.command_mode"}] },
+  { "command": "list_rails_stylesheets", "keys": [" ", "m"],
+    "context": [{"key": "setting.command_mode"}] }
+
 ]
