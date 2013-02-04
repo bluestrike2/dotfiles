@@ -5,40 +5,44 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
-# Alias hub
+# alias hub
 eval "$(hub alias -s)"
 
-# Source Prezto.
+# source prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Aliases galore
+#### aliases
 
-alias st="subl"
-alias b="bundle exec"
-alias h="heroku"
+# general osx/common apps
+alias o="open"
+alias s="subl"
+alias lsg="l | grep"
+alias gz="tar -zcvf"
+alias ungz="tar -xvfz"
 
+# git aliases
+# some override zprezto/git module aliases
 alias diff="git difftool"
 alias ga='git add'
 alias giA='git add -A'
 alias gc='git commit'
 alias gck='git checkout'
 alias gSpu='git submodule foreach git pull && git submodule update --recursive'
-
-alias gs="git status --ignore-submodules=${_git_status_ignore_submodules}"
 alias gst='git stash'
+alias gs='git status --short'
+alias gis='git status --short'
+alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --date=relative'
 
+# ruby + ruby on rails
+alias b="bundle exec"
+alias h="heroku"
 alias fore="foreman start -f .foreman"
 alias z="zeus"
 alias zs="zeus start"
 alias zc="zeus console"
 alias zr="zeus rake"
 alias zg="zeus g"
-
-alias lsg="l | grep"
-
-alias gz="tar -zcvf"
-alias ungz="tar -xvfz"
 
 alias powify="echo 3000 > ~/.pow/`basename $PWD`"
