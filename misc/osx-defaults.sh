@@ -24,7 +24,7 @@ defaults write com.apple.menuextra.battery ShowPercent -string "NO"
 defaults write com.apple.menuextra.battery ShowTime -string "YES"
 
 # Always show scrollbars
-defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
+# defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 
 # Allow quitting Finder via ⌘ + Q; doing so will also hide desktop icons
 #defaults write com.apple.finder QuitMenuItem -bool true
@@ -159,9 +159,9 @@ chflags nohidden ~/Library
 hash tmutil &> /dev/null && sudo tmutil disablelocal
 
 # Remove Dropbox’s green checkmark icons in Finder.app
-#file=/Applications/Dropbox.app/Contents/Resources/check.icns
-#[ -e "$file" ] && mv -f "$file" "$file.bak"
-#unset file
+file=/Applications/Dropbox.app/Contents/Resources/check.icns
+[ -e "$file" ] && mv -f "$file" "$file.bak"
+unset file
 
 # Fix for the ancient UTF-8 bug in QuickLook (http://mths.be/bbo)
 # Commented out, as this is known to cause problems when saving files in Adobe Illustrator CS5 :(
