@@ -34,6 +34,12 @@ alias gst='git stash'
 alias gs='git status --short'
 alias gis='git status --short'
 alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --date=relative'
+alias grC='git rebase --continue'
+
+# unalias grc for generic colouriser 
+if (( $+commands[grc] )); then
+  unalias grc
+fi
 
 # ruby + ruby on rails
 alias b="bundle exec"
