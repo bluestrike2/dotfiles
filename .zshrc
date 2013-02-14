@@ -38,11 +38,11 @@ alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %
 # ruby + ruby on rails
 alias b="bundle exec"
 alias h="heroku"
+alias powify="echo 3000 > ~/.pow/`basename $PWD`"
+
 alias fore="foreman start -f .foreman"
 alias z="zeus"
 alias zs="zeus start"
 alias zc="zeus console"
 alias zr="zeus rake"
 alias zg="zeus g"
-
-alias powify="echo 3000 > ~/.pow/`basename $PWD`"
