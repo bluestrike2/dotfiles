@@ -124,20 +124,14 @@ defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
 # Remove useless icons from Safari’s bookmarks bar
 defaults write com.apple.Safari ProxiesInBookmarksBar "()"
 
-## Terminal
+## Terminal.app
 #########################################
 
-# Only use UTF-8 in Terminal.app
+# Only use UTF-8
 defaults write com.apple.terminal StringEncodings -array 4
 
 ## iTunes
 #########################################
-
-# Disable the Ping sidebar in iTunes
-defaults write com.apple.iTunes disablePingSidebar -bool true
-
-# Disable all the other Ping stuff in iTunes
-defaults write com.apple.iTunes disablePing -bool true
 
 # Disable send and reply animations in Mail.app
 defaults write com.apple.Mail DisableReplyAnimations -bool true
