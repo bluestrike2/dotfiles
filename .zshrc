@@ -52,3 +52,6 @@ alias zs="zeus start"
 alias zc="zeus console"
 alias zr="zeus rake"
 alias zg="zeus g"
+
+# tmux segments
+# PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
