@@ -21,7 +21,8 @@ alias gz="tar -zcvf"
 alias ungz="tar -xvfz"
 
 # git aliases (some override zprezto/git module aliases)
-alias diff="git difftool"
+alias diff="git diff"
+alias kdiff="git difftool"
 alias ga='git add'
 alias giA='git add -A'
 alias gc='git commit'
