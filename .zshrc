@@ -1,19 +1,17 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
+# Executes commands at the start of an
+# interactive session.
 
-# alias hub
 eval "$(hub alias -s)"
 
-# source prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-#### aliases
+#[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]]; source $HOME/.tmuxinator/scripts/tmuxinator
+
+export EDITOR='subl -w'
+
+
 
 # general osx/common apps
 alias o="open"
@@ -22,8 +20,7 @@ alias lsg="l | grep"
 alias gz="tar -zcvf"
 alias ungz="tar -xvfz"
 
-# git aliases
-# some override zprezto/git module aliases
+# git aliases (some override zprezto/git module aliases)
 alias diff="git difftool"
 alias ga='git add'
 alias giA='git add -A'
@@ -35,13 +32,14 @@ alias gs='git status --short'
 alias gis='git status --short'
 alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --date=relative'
 alias grC='git rebase --continue'
+alias gpu='git fetch origin -v; git fetch upstream -v; git merge upstream/master'
 
-# unalias grc for generic colouriser 
+# unalias grc from zprezto for generic colouriser support
 if (( $+commands[grc] )); then
   unalias grc
 fi
 
-# ruby + ruby on rails
+# ruby/rails/etc.
 alias b="bundle exec"
 alias h="heroku"
 alias powify="echo 3000 > ~/.pow/`basename $PWD`"
