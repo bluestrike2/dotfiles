@@ -50,6 +50,7 @@ alias z="zeus"
 alias zs="zeus start"
 alias zc="zeus console"
 alias zr="zeus rake"
+alias zt="zeus test test"
 alias zg="zeus g"
 
 # tmux segments
