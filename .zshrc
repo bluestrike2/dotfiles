@@ -1,16 +1,29 @@
 # Executes commands at the start of an
 # interactive session.
 
-eval "$(hub alias -s)"
+
+#
+# source zprezto
+#
+
 
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-#[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]]; source $HOME/.tmuxinator/scripts/tmuxinator
+
+#
+# general
+#
+
 
 export EDITOR='subl -w'
+eval "$(hub alias -s)"
 
+
+#
+# aliases
+#
 
 
 # general osx/common apps
@@ -35,10 +48,6 @@ alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %
 alias grC='git rebase --continue'
 alias gpu='git fetch origin -v; git fetch upstream -v; git merge upstream/master'
 
-# unalias grc from zprezto for generic colouriser support
-if (( $+commands[grc] )); then
-  unalias grc
-fi
 
 # ruby/rails/etc.
 alias b="bundle exec"
@@ -53,5 +62,18 @@ alias zr="zeus rake"
 alias zt="zeus test test"
 alias zg="zeus g"
 
-# tmux segments
+# unalias grc from zprezto for generic colouriser support
+# if (( $+commands[grc] )); then
+#   unalias grc
+# fi
+
+
+#
+# tmux
+#
+
+
+#[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]]; source $HOME/.tmuxinator/scripts/tmuxinator
+
+# set tmux segments
 # PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'

@@ -24,3 +24,5 @@
 	tool = Kaleidoscope
 [push]
 	default = matching
+[credential]
+	helper = osxkeychain
