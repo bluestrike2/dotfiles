@@ -1,0 +1,19 @@
+#!/bin/sh
+
+brew tap caskroom/cask
+brew install brew-cask
+
+brew cask install adium
+brew cask install adobe-creative-cloud
+brew cask install adobe-photoshop-lightroom
+brew cask install appzapper
+brew cask install controlplane
+brew cask install dropbox
+brew cask install flux
+brew cask install google-chrome
+brew cask install origin
+brew cask install spotify
+brew cask install the-unarchiver
+brew cask install transmission
+brew cask install vlc
+brew cask install vlcstreamer
