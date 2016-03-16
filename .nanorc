@@ -1,3 +1,6 @@
+set tabsize 4
+set tabstospaces
+
 # include "~/.nano/css.nanorc"
 # include "~/.nano/git.nanorc"
 # include "~/.nano/haml.nanorc"
