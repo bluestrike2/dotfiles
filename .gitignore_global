@@ -1,12 +1,18 @@
-## Compiled source
+## compiled source, object files, static and dynamic libs (shared objects)
 *.com
 *.class
 *.dll
 *.exe
 *.o
+*.rbc
 *.so
 
-## packages (better to unpack & commit raw sources; git has own compression methods)
+*.a
+*.so
+
+## packages
+#  unpack these files and commit the raw source; git has its own built-in
+#  compression methods
 *.7z
 *.dmg
 *.gz
@@ -16,21 +22,31 @@
 *.tar
 *.zip
 
-## logs & databases
-# *.log
-# *.sql
-# *.sqlite
+## logs and database files
+*.log
+*.sql
+*.sqlite
 
-## miscellania, os files, etc.s
+## os files
 .DS_Store*
-*.esproj
-.bundle
-.sass-cache
+ehthumbs.db
+Icon?
+Thumbs.db
 thumbs.db
 Thumbs.dbe
+
+## miscellania
+.bundle
 REVISION
 *.cache
+.sass-cache
 
-## editor junk
-*.sublime-project
-*.sublime-workspace
+## vagrant
+.vagrant
+Vagrantfile
+
+## crystal
+.crystal
+
+## rubinius
+.rbx
