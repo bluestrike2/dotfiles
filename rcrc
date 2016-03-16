@@ -1,2 +1,2 @@
-EXCLUDES="README.md misc"
+EXCLUDES="README.md laptop.local misc"
 DOTFILES_DIRS="$HOME/dotfiles"
