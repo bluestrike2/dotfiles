@@ -25,3 +25,6 @@ alias sl='ls'            # I often screw this up.
 
 # Alias hub to git
 eval "$(hub alias -s)"
+
+# Aliases for useful tools
+alias bs='brew services'
