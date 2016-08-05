@@ -10,6 +10,11 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+# General Stuff
+export ANDROID_HOME=/usr/local/opt/android-sdk
+export ANDROID_NDK_HOME=/usr/local/opt/android-ndk
+export GRADLE_HOME=/usr/local/opt/gradle
+
 # Fun with ls
 alias l='ls -lh'         # List human readable sizes.
 alias ll='ls -1A'        # List in one column.
