@@ -1,6 +1,7 @@
 [user]
 	name = Tom Stoecklein
 	email = tom@vexea.com
+	signingkey = A31B2F8BD8334382
 [core]
 	excludesfile = /Users/tom/.gitignore_global
 	autocrlf = input
