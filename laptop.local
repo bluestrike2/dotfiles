@@ -3,19 +3,77 @@
 brew tap caskroom/cask
 brew install brew-cask
 
-brew cask install adium
+# integrate brew services with launchctl
+# github.com/Homebrew/homebrew-services
+brew tap homebrew/services
+
+# install cask apps
 brew cask install adobe-creative-cloud
 brew cask install adobe-photoshop-lightroom
-brew cask install appzapper
-brew cask install controlplane
+brew cask install atom
+brew cask install appcleaner
+brew cask install backblaze
+brew cask install battle-net
 brew cask install dropbox
+brew cask install calibre
 brew cask install flux
-brew cask install google-chrome
+brew cask install goofy
+brew cask install grandperspective
+brew cask install handbrake
+brew cask install karabiner
+brew cask install kindle
+brew cask install little-snitch
+brew cask install macdown
+brew cask install openemu
 brew cask install origin
+brew cask install skype
+brew cask install slack
 brew cask install spotify
+brew cask install steam
+brew cask install steermouse
 brew cask install the-unarchiver
 brew cask install transmission
+brew cask install transmit
+brew cask install unrarx
 brew cask install vlc
 brew cask install vlcstreamer
 
-brew tap homebrew/services
+# browsers
+brew cask install google-chrome
+brew cask install firefox
+brew cask install vivaldi
+
+# golang
+brew install go
+brew install mercurial
+
+# java
+brew cask installjava
+
+# postgresql gui client
+brew cask install postico
+
+# plays sound to mark hour of continuous use
+brew cask install awareness
+
+# organizes menu bar apps
+#brew cask install bartender
+
+# changes certain behavior based on context (location, etc.)
+#brew cask install controlplane
+
+# secure tunnel to localhost
+# brew cask install ngrok
+
+# click buttons with keyboard - shortcatapp.com
+# brew cask install shortcat
+
+# automatic proxy server switching (no longer maintained? find alt)
+# brew cask install sidestep
+
+# homebrew-fonts casks
+brew cask install font-fira-code
+brew cask install font-fira-sans
+brew cask install font-hack
+brew cask install font-inconsolata
+#brew cask install font-inconsolata-g-for-powerline
