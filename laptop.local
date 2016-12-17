@@ -1,5 +1,18 @@
 #!/bin/sh
 
+git_clone_or_pull() {
+  local REPOSRC=$1
+  local LOCALREPO=$2
+  local LOCALREPO_VC_DIR=$LOCALREPO/.git
+  if [[ ! -d "$LOCALREPO_VC_DIR" ]]; then
+    git clone --recursive $REPOSRC $LOCALREPO
+  else
+    pushd $LOCALREPO
+    git pull $REPOSRC && git submodule update --init --recursive
+    popd
+  fi
+}
+
 brew bundle --file=- <<EOF
 tap 'caskroom/cask'
 tap 'caskroom/fonts'
@@ -47,11 +60,17 @@ cask 'vlc'
 cask 'vlcstreamer'
 EOF
 
-fancy_echo "Cleaning up old Homebrew formulae ..."
+echo "Cleaning up old Homebrew formulae ..."
 brew cleanup
 brew cask cleanup
 
-if [ -r "$HOME/.rcrc" ]; then
-  fancy_echo "Updating dotfiles ..."
-  rcup
+# assumes ssh key exists and has been added to github account
+echo "Cloning personal dotfiles and zprezto"
+git_clone_or_pull 'git@github.com:bluestrike2/dotfiles.git' '${ZDOTDIR:-$HOME}/dotfiles'
+git_clone_or_pull 'https://github.com/sorin-ionescu/prezto.git' '${ZDOTDIR:-$HOME}/.zprezto'
+
+if [ ! -r "$HOME/.rcrc" ]; then
+  echo "Updating dotfiles ..."
+  lsrc -v -d ~/dotfiles -x 'README.md' -x 'laptop.local' -x 'misc'
+  rcup -v -d ~/dotfiles -x 'README.md' -x 'laptop.local' -x 'misc'
 fi
