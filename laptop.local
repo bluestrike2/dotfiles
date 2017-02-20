@@ -16,10 +16,36 @@ git_clone_or_pull() {
 brew bundle --file=- <<EOF
 tap 'caskroom/cask'
 tap 'caskroom/fonts'
+tap 'homebrew/services'
+tap 'neovim/neovim'
+tap 'thoughtbot/formulae'
+brew 'git'
+brew 'git-flow'
 brew 'go'
+brew 'heroku'
+brew 'hub'
+brew 'mas'
+brew 'memcached'
 brew 'mercurial'
+# brew 'mysql'
+brew 'neovim'
+brew 'node'
+brew 'postgresql'
+brew 'puma/puma/puma-dev'
 brew 'python'
+brew 'qt5'
+brew 'ruby-build'
+brew 'rbenv'
+brew 'reattach-to-user-namespace', args: ['with-wrap-pbcopy-and-pbpaste']
+brew 'redis'
 brew 'shellcheck'
+brew 'sqlite'
+brew 'the_silver_searcher'
+brew 'thoughtbot/formulae/parity'
+brew 'thoughtbot/formulae/rcm'
+brew 'tmux'
+brew 'wget'
+brew 'zsh'
 cask 'adobe-creative-cloud'
 cask 'awareness'
 cask 'alfred'
@@ -39,11 +65,14 @@ cask 'font-inconsolata'
 cask 'goofy'
 cask 'grandperspective'
 cask 'handbrake'
-# cask 'installjava'
-cask 'karabiner'
+cask 'java'
+# cask 'karabiner-elements'
 cask 'kindle'
+cask 'kindlegen'
+cask 'kindlepreviewer'
 cask 'little-snitch'
 cask 'macdown'
+cask 'mactex'
 cask 'mplayerx'
 cask 'openemu'
 cask 'origin'
@@ -58,6 +87,19 @@ cask 'unrarx'
 cask 'vivaldi'
 cask 'vlc'
 cask 'vlcstreamer'
+brew 'ant'
+brew 'maven'
+brew 'gradle'
+brew 'android-sdk'
+brew 'android-ndk'
+mas '1Password', id: 443987910
+mas 'CloudApp', id: 417602904
+mas 'Monit', id: 1014850245
+mas 'iA Writer', id: 775737590
+mas 'Keynote', id: 409183694
+mas 'Numbers', id: 409203825
+mas 'Pages', id: 409201541
+mas 'Xcode', id: 497799835
 EOF
 
 echo "Cleaning up old Homebrew formulae ..."
