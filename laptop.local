@@ -112,6 +112,15 @@ echo "Cloning personal dotfiles and zprezto"
 git_clone_or_pull 'git@github.com:bluestrike2/dotfiles.git' '${ZDOTDIR:-$HOME}/dotfiles'
 git_clone_or_pull 'https://github.com/sorin-ionescu/prezto.git' '${ZDOTDIR:-$HOME}/.zprezto'
 
+# dein.vim plugin manager
+# => review the linked file over before installing
+cd "$HOME"
+mkdir -p $HOME/.config
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > 'dein_installer.sh'
+sh ./dein_installer.sh ".config/nvim/bundle"
+echo "Finished installing dein.vim"
+
+# link dotfiles from dotfiles directory
 if [ ! -r "$HOME/.rcrc" ]; then
   echo "Updating dotfiles ..."
   lsrc -v -d ~/dotfiles -x 'README.md' -x 'laptop.local' -x 'misc'
