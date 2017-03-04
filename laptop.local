@@ -122,7 +122,7 @@ echo "Finished installing dein.vim"
 
 # link dotfiles from dotfiles directory
 if [ ! -r "$HOME/.rcrc" ]; then
-  echo "Updating dotfiles ..."
-  lsrc -v -d ~/dotfiles -x 'README.md' -x 'laptop.local' -x 'misc'
-  rcup -v -d ~/dotfiles -x 'README.md' -x 'laptop.local' -x 'misc'
+  echo "Installing dotfile ..."
+  env RCRC=$HOME/dotfiles/rcrc rcup -v
+  echo "Finished linking dotfiles!"
 fi
