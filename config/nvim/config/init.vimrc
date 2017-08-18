@@ -1,0 +1,40 @@
+set runtimepath+=~/.config/nvim/bundle/repos/github.com/Shougo/dein.vim
+let s:bundle_dir = expand('~/.config/nvim/bundle')
+let s:plugin_dir = s:bundle_dir . '/repos/github.com'
+
+if dein#load_state(s:bundle_dir)
+  call dein#begin(s:bundle_dir)
+  call dein#add(s:plugin_dir . '/Shougo/dein.vim')
+
+  call dein#add('christoomey/vim-run-interactive')
+  call dein#add('ctrlpvim/ctrlp.vim')
+  call dein#add('elixir-lang/vim-elixir')
+  call dein#add('fatih/vim-go')
+  call dein#add('janko-m/vim-test')
+  call dein#add('kchmck/vim-coffee-script')
+  call dein#add('pbrisbin/vim-mkdir')
+  call dein#add('scrooloose/syntastic')
+  call dein#add('slim-template/vim-slim')
+  call dein#add('tpope/vim-bundler')
+  call dein#add('tpope/vim-endwise')
+  call dein#add('tpope/vim-eunuch')
+  call dein#add('tpope/vim-fugitive')
+  call dein#add('tpope/vim-projectionist')
+  call dein#add('tpope/vim-rails')
+  call dein#add('tpope/vim-rake')
+  call dein#add('tpope/vim-repeat')
+  call dein#add('tpope/vim-rhubarb')
+  call dein#add('tpope/vim-surround')
+  call dein#add('vim-ruby/vim-ruby')
+  call dein#add('vim-scripts/tComment')
+
+  call dein#add('arcticicestudio/nord-vim')
+  call dein#add('atelierbram/Base2Tone-vim')
+  call dein#add('davidklsn/vim-sialoquent')
+  call dein#add('christoomey/vim-titlecase')
+  " call dein#add('christoomey/vim-tmux-navigator')
+  call dein#add('junegunn/goyo.vim')
+
+  call dein#end()
+  call dein#save_state()
+endif
