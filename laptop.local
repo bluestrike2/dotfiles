@@ -107,26 +107,38 @@ mas 'Pages', id: 409201541
 mas 'Xcode', id: 497799835
 EOF
 
-echo "Cleaning up old Homebrew formulae ..."
+echo "\nCleaning up old Homebrew formulae..."
 brew cleanup
 brew cask cleanup
+echo "Finished cleaning up old Homeberw formular...\u2714"
 
 # assumes ssh key exists and has been added to github account
-echo "Cloning personal dotfiles and zprezto"
+echo "\nCloning personal dotfiles and zprezto..."
 git_clone_or_pull 'git@github.com:bluestrike2/dotfiles.git' '${ZDOTDIR:-$HOME}/dotfiles'
 git_clone_or_pull 'https://github.com/sorin-ionescu/prezto.git' '${ZDOTDIR:-$HOME}/.zprezto'
+echo "Finished cloning dotfiles and zprezto...\u2714"
 
 # dein.vim plugin manager
 # => review the linked file over before installing
+echo "\nInstalling dein.vim plugin manager..."
 cd "$HOME"
 mkdir -p $HOME/.config
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > 'dein_installer.sh'
 sh ./dein_installer.sh ".config/nvim/bundle"
-echo "Finished installing dein.vim"
+echo "Finished installing dein.vim...\u2714"
+
+# Install atom packages
+if ! type "$apm" > /dev/null; then
+  echo "\nInstalling atom packages via apm..."
+  apm install --packages-file ~/dotfiles/atom/packages.txt
+  echo "Finished installing atom packages...\u2714"
+else
+  echo "ERROR apm not found...\u274c"
+fi
 
 # link dotfiles from dotfiles directory
 if [ ! -r "$HOME/.rcrc" ]; then
-  echo "Installing dotfile ..."
+  echo "\nInstalling dotfile..."
   env RCRC=$HOME/dotfiles/rcrc rcup -v
-  echo "Finished linking dotfiles!"
+  echo "Finished linking dotfiles...\u2714"
 fi
