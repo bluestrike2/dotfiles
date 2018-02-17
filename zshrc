@@ -33,3 +33,7 @@ eval "$(hub alias -s)"
 
 # Aliases for useful tools
 alias bs='brew services'
+
+# Output list of Atom packages to text file
+alias atom-packages-list="apm list --installed --bare > ~/dotfiles/atom/packages.txt"
+alias atom-packages-install="apm install --packages-file ~/dotfiles/atom/packages.txt"
