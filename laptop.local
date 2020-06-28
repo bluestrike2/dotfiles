@@ -1,5 +1,12 @@
 #!/bin/sh
 
+fancy_echo() {
+  local fmt="$1"; shift
+
+  # shellcheck disable=SC2059
+  printf "\\n$fmt\\n" "$@"
+}
+
 git_clone_or_pull() {
   local REPOSRC=$1
   local LOCALREPO=$2
@@ -13,132 +20,130 @@ git_clone_or_pull() {
   fi
 }
 
+fancy_echo "Are you signed into the Mac App Store (y/n)?"
+read answer
+if [ "$answer" != "${answer#[Yy]}"] ;then
+  fancy_echo "Yes, already signed in to MAS ..."
+else
+  fancy_echo "Exiting. Sign in to MAS and then run laptop.local directly."; exit 0
+fi
+
 brew bundle --file=- <<EOF
-tap 'caskroom/cask'
-tap 'caskroom/fonts'
-tap 'homebrew/services'
-tap 'neovim/neovim'
-tap 'thoughtbot/formulae'
-brew 'git'
-brew 'git-flow'
-brew 'diff-so-fancy'
-brew 'go'
-brew 'heroku'
-brew 'hub'
-brew 'mas'
-brew 'memcached'
-brew 'mercurial'
-# brew 'mysql'
-brew 'neovim'
-brew 'node'
-brew 'postgresql'
-brew 'puma/puma/puma-dev'
-brew 'python'
-brew 'qt5'
-brew 'ruby-build'
-brew 'rbenv'
-brew 'reattach-to-user-namespace', args: ['with-wrap-pbcopy-and-pbpaste']
-brew 'redis'
-brew 'shellcheck'
-brew 'sqlite'
-brew 'the_silver_searcher'
-brew 'thoughtbot/formulae/parity'
-brew 'thoughtbot/formulae/rcm'
-brew 'tmux'
-brew 'wget'
-brew 'zsh'
-cask 'adobe-creative-cloud'
-cask 'awareness'
-cask 'alfred'
-cask 'appcleaner'
-cask 'atom'
-cask 'backblaze'
-cask 'battle-net'
-cask 'calibre'
-cask 'carbon-copy-cloner'
-cask 'discord'
-cask 'dropbox'
-cask 'docker-toolbox'
-cask 'firefox'
-cask 'flux'
-cask 'font-fira-code'
-cask 'font-fira-sans'
-cask 'font-hack'
-cask 'font-inconsolata'
-cask 'goofy'
-cask 'google-drive'
-cask 'grandperspective'
-cask 'handbrake'
-cask 'java'
-# cask 'karabiner-elements'
-cask 'kindle'
-cask 'kindlegen'
-cask 'kindlepreviewer'
-cask 'little-snitch'
-cask 'mactex'
-cask 'mplayerx'
-cask 'openemu'
-cask 'origin'
-cask 'postico'
-cask 'sixtyforce'
-cask 'slack'
-cask 'sketch'
-cask 'skype'
-cask 'steam'
-cask 'steermouse'
-cask 'the-unarchiver'
-cask 'transmission'
-cask 'unrarx'
-cask 'vivaldi'
-cask 'vlc'
-cask 'vlcstreamer'
-brew 'ant'
-brew 'maven'
-brew 'gradle'
-brew 'android-sdk'
-brew 'android-ndk'
-mas '1Password', id: 443987910
-mas 'CloudApp', id: 417602904
-mas 'Monit', id: 1014850245
-mas 'iA Writer', id: 775737590
-mas 'Keynote', id: 409183694
-mas 'Numbers', id: 409203825
-mas 'Pages', id: 409201541
-mas 'Xcode', id: 497799835
+tap "caskroom/fonts"
+tap "neovim/neovim"
+tap "puma/puma"
+tap "thoughtbot/formulae"
+
+tap "d12frosted/emacs-plus"
+brew emacs-plus
+
+brew "asdf"
+brew "diff-so-fancy"
+brew "git-flow"
+brew "go"
+brew "hugo"
+brew "mas"
+# brew "memcached"
+# brew "mysql"
+brew "neovim"
+brew "puma/puma/puma-dev"
+# brew "python"
+# brew "qt5"
+brew "reattach-to-user-namespace", args: ["with-wrap-pbcopy-and-pbpaste"]
+brew "shellcheck"
+brew "sqlite"
+brew "thoughtbot/formulae/parity"
+brew "thoughtbot/formulae/rcm"
+brew "wget"
+
+cask "adobe-creative-cloud"
+cask "awareness"
+cask "alfred"
+cask "appcleaner"
+cask "atom"
+cask "backblaze"
+cask "battle-net"
+cask "calibre"
+cask "carbon-copy-cloner"
+cask "discord"
+cask "dropbox"
+cask "docker-toolbox"
+cask "firefox"
+cask "flux"
+cask "font-fira-code"
+cask "font-fira-sans"
+cask "font-hack"
+cask "font-inconsolata"
+cask "font-iosevka"
+cask "font-source-code-pro"
+cask "handbrake"
+cask "iina"
+cask "kindle"
+cask "kindlegen"
+cask "kindle-previewer"
+cask "little-snitch"
+cask "mactex"
+cask "microsoft-office"
+cask "openemu"
+cask "origin"
+cask "postico"
+cask "sixtyforce"
+cask "slack"
+cask "sketch"
+cask "steam"
+cask "steermouse"
+cask "the-unarchiver"
+cask "transmission"
+cask "vivaldi"
+cask "vlc"
+cask "vlcstreamer"
 EOF
 
-echo "\nCleaning up old Homebrew formulae..."
+fancy_echo "Are you signed into the Mac App Store (y/n)?"
+read answer
+if [ "$answer" != "${answer#[Yy]}"] ;then
+  fancy_echo "Installing Mac app store apps ..."
+  # App Store Apps
+  brew bundle --file=- <<EOF
+  mas "1Password", id: 443987910
+  mas "Monit", id: 101485024
+  mas "iA Writer", id: 775737590
+  mas "Keynote", id: 409183694
+  mas "Pages", id: 409201541
+EOF
+else
+  fancy_echo "Not logged in to MAS. Skipping Mac app store apps. "; exit 0
+fi
+
+fancy_echo "Cleaning up old Homebrew formulae ..."
 brew cleanup
-brew cask cleanup
-echo "Finished cleaning up old Homeberw formular...\u2714"
 
 # assumes ssh key exists and has been added to github account
-echo "\nCloning personal dotfiles and zprezto..."
-git_clone_or_pull 'git@github.com:bluestrike2/dotfiles.git' '${ZDOTDIR:-$HOME}/dotfiles'
-git_clone_or_pull 'https://github.com/sorin-ionescu/prezto.git' '${ZDOTDIR:-$HOME}/.zprezto'
-echo "Finished cloning dotfiles and zprezto...\u2714"
+fancy_echo "Cloning personal dotfiles and zprezto ..."
+git_clone_or_pull 'https://github.com/bluestrike2/dotfiles.git' '${HOME}/dotfiles'
+git_clone_or_pull 'https://github.com/sorin-ionescu/prezto.git' '${HOME}/.zprezto'
+
+# Link emacs-plus to /Applications (spacemacs)
+ln -s /usr/local/Cellar/emacs-plus/*/Emacs.app/ /Applications/
 
 # dein.vim plugin manager
 # => review the linked file over before installing
-echo "\nInstalling dein.vim plugin manager..."
+fancy_echo "Installing dein.vim plugin manager ..."
 cd "$HOME"
 mkdir -p $HOME/.config
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > 'dein_installer.sh'
 sh ./dein_installer.sh ".config/nvim/bundle"
-echo "Finished installing dein.vim...\u2714"
 
 # Install atom packages
 if ! type "$apm" > /dev/null; then
-  echo "\nInstalling atom packages via apm..."
+  fancy_echo "Installing atom packages via apm ..."
   apm install --packages-file ~/dotfiles/atom/packages.txt
-  echo "Finished installing atom packages...\u2714"
 else
-  echo "ERROR apm not found...\u274c"
+  fancy_echo "ERROR apm not found."
 fi
 
 # link dotfiles from dotfiles directory
 if [ ! -r "$HOME/.rcrc" ]; then
-  echo "\nInstalling dotfile..."
+  fancy_echo "Linking dotfiles with rcm ..."
   env RCRC=$HOME/dotfiles/rcrc rcup -v
-  echo "Finished linking dotfiles...\u2714"
 fi

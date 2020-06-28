@@ -37,3 +37,15 @@ alias bs='brew services'
 # Output list of Atom packages to text file
 alias atom-packages-list="apm list --installed --bare > ~/dotfiles/atom/packages.txt"
 alias atom-packages-install="apm install --packages-file ~/dotfiles/atom/packages.txt"
+
+# Include homebrew completions
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+fi
+
+# Add asdf to shell
+. /usr/local/opt/asdf/asdf.sh
+
+# GPG
+export GPG_TTY=`tty`
+
