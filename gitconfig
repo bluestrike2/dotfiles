@@ -1,7 +1,7 @@
 [user]
 	name = Tom Stoecklein
 	email = tom@stoeckle.in
-	signingkey = DA9D93AEAA26F156
+	signingkey = E8B2EA42DAB0C8489B90DEF755828A4F7461698C
 [core]
 	excludesfile = /Users/tom/.gitignore_global
 	autocrlf = input
@@ -24,3 +24,12 @@
   autosquash = true
 [credential]
 	helper = osxkeychain
+[commit]
+	gpgsign = true
+[gpg]
+  program = /usr/local/bin/gpg
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

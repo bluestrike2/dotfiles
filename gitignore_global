@@ -50,3 +50,6 @@ Vagrantfile
 
 ## rubinius
 .rbx
+
+## per-project atom settings
+.atom
